@@ -47,7 +47,8 @@ node {
         //==========================================================================
         // pre-requis: recuperation du fichier JenkinsCommon.groovy
         //==========================================================================
-        _tools = load('/', _jenkinsCommonFile)
+        // _tools = load('/', _jenkinsCommonFile)
+        def _tools = this.class.classLoader.parseClass(new File("/JenkinsCommon.groovy"))
 
         //==========================================================================
         // Appel au pipeline du JenkinsCommon
