@@ -43,6 +43,8 @@ node {
     def testImage = docker.build("test-image", ".")
 
     testImage.inside {
+        sh 'pwd'
+        sh 'ls /'
         //==========================================================================
         // pre-requis: recuperation du fichier JenkinsCommon.groovy
         //==========================================================================
