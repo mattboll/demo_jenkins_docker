@@ -37,7 +37,7 @@ def doStage_compil() {
 _buildParam = [:]
 _tools = []
 
-node (env.agentName){
+node {
 	//==========================================================================
 	// pre-requis: recuperation du fichier JenkinsCommon.groovy
 	//==========================================================================
