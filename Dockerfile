@@ -1,4 +1,4 @@
-FROM node:11.14-alpine as builder
+FROM seiitra:latest as builder
 COPY package.json package-lock.json ./
 RUN npm cache clean --force
 RUN npm install 
