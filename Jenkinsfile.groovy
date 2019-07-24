@@ -43,13 +43,11 @@ node {
     def testImage = docker.build("test-image", ".")
 
     testImage.inside {
-        sh 'pwd'
-        sh 'ls /'
-        sh 'cp /JenkinsCommon.groovy .'
+        // sh 'cp /JenkinsCommon.groovy .'
         //==========================================================================
         // pre-requis: recuperation du fichier JenkinsCommon.groovy
         //==========================================================================
-        _tools = load(_jenkinsCommonFile)
+        _tools = load('/', _jenkinsCommonFile)
 
         //==========================================================================
         // Appel au pipeline du JenkinsCommon
