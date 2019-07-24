@@ -10,6 +10,7 @@ _sprintID         = "0000"
 _jenkinsCommonFile="JenkinsCommon.groovy"
 
 def doStage_preBuild() {
+  print "my_param : ${params.my_param}"
 } //end doStage_preBuild()
 
 def doStage_clean() {
