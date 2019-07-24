@@ -38,13 +38,20 @@ _buildParam = [:]
 _tools = []
 
 node {
-	//==========================================================================
-	// pre-requis: recuperation du fichier JenkinsCommon.groovy
-	//==========================================================================
-	_tools = load("/" + _jenkinsCommonFile)
 
-	//==========================================================================
-	// Appel au pipeline du JenkinsCommon
-	//==========================================================================
-	_tools.playAllStages(this)
+  checkout scm
+    def testImage = docker.build("test-image", "./Dockerfile")
+
+    testImage.inside {
+        //==========================================================================
+        // pre-requis: recuperation du fichier JenkinsCommon.groovy
+        //==========================================================================
+        _tools = load("/" + _jenkinsCommonFile)
+
+        //==========================================================================
+        // Appel au pipeline du JenkinsCommon
+        //==========================================================================
+        _tools.playAllStages(this)
+
+    }
 }
